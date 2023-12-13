@@ -3,12 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Custom.Command.Line", "Custom.Command.Line\Custom.Command.Line.csproj", "{5E622A97-CE49-4050-BA86-2BC685DF89DF}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{039489A0-7704-43E1-8DC4-2297EB723DB4}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Custom.CLI", "Custom.CLI\Custom.CLI.csproj", "{4B081AA7-1C07-4EDE-A511-2095FDA15C8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,10 +16,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5E622A97-CE49-4050-BA86-2BC685DF89DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E622A97-CE49-4050-BA86-2BC685DF89DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E622A97-CE49-4050-BA86-2BC685DF89DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E622A97-CE49-4050-BA86-2BC685DF89DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B081AA7-1C07-4EDE-A511-2095FDA15C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B081AA7-1C07-4EDE-A511-2095FDA15C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B081AA7-1C07-4EDE-A511-2095FDA15C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B081AA7-1C07-4EDE-A511-2095FDA15C8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
