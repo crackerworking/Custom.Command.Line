@@ -4,7 +4,14 @@
     {
         public abstract (string name, string desc) ID { get; }
 
-        protected virtual List<CommandOption> Options { get; }
+        protected virtual Dictionary<(string name,string desc), Action<string>> Options { get; }
+
+        protected virtual Dictionary<string, string> Parameters { get; }
+
+        protected Action<string>? GetOptionValue(string name)
+        {
+            return Options.FirstOrDefault(x => x.Key.name == name).Value;
+        }
 
         public abstract Task ExecuteAsync(string[] args);
     }

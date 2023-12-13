@@ -2,7 +2,7 @@
   "profiles": {
     "Custom.Command.Line": {
       "commandName": "Project",
-      "commandLineArgs": "gen --phone"
+      "commandLineArgs": "gen --snowid"
     }
   }
 }
