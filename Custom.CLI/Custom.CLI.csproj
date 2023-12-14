@@ -15,6 +15,7 @@
 	  <PackageReference Include="Spectre.Console.Cli" Version="0.48.1-preview.0.5" />
 	  <PackageReference Include="HtmlAgilityPack" Version="1.11.55" />
 	  <PackageReference Include="DeepCloner" Version="0.10.4" />
+	  <PackageReference Include="TextCopy" Version="6.2.1" />
   </ItemGroup>
 
 </Project>

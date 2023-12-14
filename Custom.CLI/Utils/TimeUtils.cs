@@ -8,5 +8,19 @@
         {
             return (long)(DateTime.UtcNow - _unixTime).TotalSeconds;
         }
+
+        public static long ToTimestamp(DateTime time)
+        {
+            if (time.Kind != DateTimeKind.Utc)
+            {
+                time = time.ToUniversalTime();
+            }
+            return (long)(time - _unixTime).TotalSeconds;
+        }
+
+        public static DateTime ToTime(long ts)
+        {
+            return _unixTime.AddSeconds(ts).ToLocalTime();
+        }
     }
 }

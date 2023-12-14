@@ -2,7 +2,7 @@
   "profiles": {
     "Custom.CLI": {
       "commandName": "Project",
-      "commandLineArgs": "gen snowid"
+      "commandLineArgs": "-h"
     }
   }
 }
