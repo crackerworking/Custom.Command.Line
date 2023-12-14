@@ -1,8 +1,8 @@
 {
   "profiles": {
-    "Custom.Command.Line": {
+    "Custom.CLI": {
       "commandName": "Project",
-      "commandLineArgs": "gen args"
+      "commandLineArgs": "gen snowid"
     }
   }
 }

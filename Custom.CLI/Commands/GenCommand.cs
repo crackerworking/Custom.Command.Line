@@ -11,16 +11,16 @@ namespace Custom.CLI.Commands
     {
         public class GenCommandSettings : CommandSettings
         {
-            [CommandArgument(0, "[Target]")]
+            [CommandArgument(0, "[phone|timestamp|idno|guid|snowid]")]
             public string Target { get; set; }
         }
 
         public override int Execute(CommandContext context, GenCommandSettings settings)
         {
             var r = new Random();
-            var dict = new Dictionary<NameDesc, Action>
+            var dict = new Dictionary<string, Action>
             {
-                [new NameDesc("phone", "手机号码")] = () =>
+                ["phone"] = () =>
                 {
                     var sb = new StringBuilder(11).Append('1');
                     sb.Append(r.Next(3, 10));
@@ -30,20 +30,29 @@ namespace Custom.CLI.Commands
                     }
                     Console.WriteLine(sb.ToString());
                 },
-                [new NameDesc("ts","当前时间戳")] = () =>
+                ["timestamp"] = () =>
                 {
                     Console.WriteLine(TimeUtils.CurrentTimestamp());
+                },
+                ["idno"] = () =>
+                {
+                    var str = IdNoUtils.GenAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+                    Console.WriteLine(str);
+                },
+                ["guid"] = () =>
+                {
+                    Console.WriteLine(Guid.NewGuid());
+                },
+                ["snowid"] = () =>
+                {
+                    var ins = new SnowflakeId(1, 4);
+                    Console.WriteLine(ins.NextId());
                 }
             };
-            if (settings.Target == "args")
+            if (dict.TryGetValue(settings.Target, out var action))
             {
-                foreach (var key in dict.Keys)
-                {
-                    Console.WriteLine("{0,-15}{1}", key.Name, key.Description);
-                }
-                return 0;
+                action?.Invoke();
             }
-            dict.FirstOrDefault(x => x.Key.Name == settings.Target).Value?.Invoke();
             return 0;
         }
     }
