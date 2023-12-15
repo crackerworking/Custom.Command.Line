@@ -13,6 +13,7 @@ namespace Custom.CLI
             {
                 config.AddCommand<GenCommand>("gen").WithDescription("生成测试数据");
                 config.AddCommand<LenCommand>("len").WithDescription("字符串长度");
+                config.AddCommand<RegexCommand>("reg").WithDescription("正则匹配");
                 config.AddCommand<DateConvertCommand>("dc").WithDescription("日期转换时间戳");
                 config.AddCommand<TimestampConvertCommand>("tc").WithDescription("时间戳转换日期");
                 config.AddCommand<JsonToObjectConvertCommand>("joc").WithDescription("剪贴板中JSON转换C#对象");
