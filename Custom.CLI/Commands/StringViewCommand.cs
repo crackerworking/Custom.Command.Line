@@ -9,11 +9,11 @@ namespace Custom.CLI.Commands
         public override int Execute(CommandContext context)
         {
             var text = ClipboardService.GetText();
-            if(text != null)
+            if (text != null)
             {
                 text = text.Replace("\r", "").Replace("\n", ",");
             }
-            Console.WriteLine(text);
+            Console.WriteLine("(" + text + ")");
             return 0;
         }
     }

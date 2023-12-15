@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+	  <PackageReference Include="GCore.Source.JsonClassGenerator" Version="1.16.0" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	  <PackageReference Include="Spectre.Console.Cli" Version="0.48.1-preview.0.5" />
 	  <PackageReference Include="HtmlAgilityPack" Version="1.11.55" />
 	  <PackageReference Include="DeepCloner" Version="0.10.4" />
