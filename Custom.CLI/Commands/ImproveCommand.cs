@@ -13,7 +13,7 @@ namespace Custom.CLI.Commands
             var msg = client.GetAsync("https://hmajax.itheima.net/api/ambition").GetAwaiter().GetResult();
             var str = msg.Content.ReadAsStringAsync().GetAwaiter().GetResult();
             var jo = JObject.Parse(str);
-            AnsiConsole.Write(new Markup("[bold cyan1]" + jo["data"] + "！[/]"));
+            AnsiConsole.Write(new Markup("[bold cyan1]" + jo["data"] + "[/]"));
             return 0;
         }
     }
