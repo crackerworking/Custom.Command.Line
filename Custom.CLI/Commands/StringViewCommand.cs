@@ -12,6 +12,7 @@ namespace Custom.CLI.Commands
             if (text != null)
             {
                 text = text.Replace("\r", "").Replace("\n", ",");
+                text = string.Join(',', text.Split(',', StringSplitOptions.RemoveEmptyEntries));
             }
             Console.WriteLine("(" + text + ")");
             return 0;
