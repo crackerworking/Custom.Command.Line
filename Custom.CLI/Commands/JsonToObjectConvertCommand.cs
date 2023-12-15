@@ -17,7 +17,7 @@ namespace Custom.CLI.Commands
                 str = str.Trim();
                 try
                 {
-                    var code = JsonClassGenerator.Generate(str, MainClass: "MainClass", Namespace: "TestNamespace").Trim();
+                    var code = JsonClassGenerator.Generate(str, MainClass: "MainClass", Namespace: "TestNamespace", UseProperties: true).Trim();
                     ClipboardService.SetText(code);
                     AnsiConsole.Write(
                         new Panel(code)
