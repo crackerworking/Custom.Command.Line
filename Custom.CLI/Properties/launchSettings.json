@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "Custom.CLI": {
-      "commandName": "Project",
-      "commandLineArgs": "gen idno"
-    }
-  }
-}
