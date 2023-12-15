@@ -36,7 +36,7 @@ namespace Custom.CLI.Commands
                 },
                 ["idno"] = () =>
                 {
-                    var str = IdNoUtils.GenAsync().ConfigureAwait(false).GetAwaiter().GetResult();
+                    var str = IdNoUtils.GenAsync().ConfigureAwait(true).GetAwaiter().GetResult();
                     Console.WriteLine(str);
                 },
                 ["guid"] = () =>
