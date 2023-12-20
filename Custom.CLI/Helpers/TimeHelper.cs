@@ -1,8 +1,8 @@
-﻿namespace Custom.CLI.Utils
+﻿namespace Custom.Cli.Helpers
 {
-    internal static class TimeUtils
+    internal class TimeHelper
     {
-        private static readonly DateTime _unixTime = new DateTime(1970, 1, 1, 0, 0, 0);
+        private static readonly DateTime _unixTime = new(1970, 1, 1, 0, 0, 0);
 
         public static long CurrentTimestamp()
         {

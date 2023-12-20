@@ -1,14 +1,15 @@
-﻿using Spectre.Console;
-using Spectre.Console.Cli;
+﻿using Custom.Cli;
+
+using Spectre.Console;
 using Spectre.Console.Json;
 
 using TextCopy;
 
-namespace Custom.CLI.Commands
+namespace Custom.Cli
 {
-    internal class JsonViewCommand : Command
+    public class JsonViewCommand : CommandBase
     {
-        public override int Execute(CommandContext context)
+        public override Task ExecuteAsync(CommandContext context)
         {
             var text = ClipboardService.GetText();
             if (text != null)
@@ -18,7 +19,7 @@ namespace Custom.CLI.Commands
 
                 AnsiConsole.Write(json);
             }
-            return 0;
+            return Task.CompletedTask;
         }
     }
 }

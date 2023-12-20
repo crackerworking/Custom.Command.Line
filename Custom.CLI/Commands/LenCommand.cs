@@ -1,19 +1,17 @@
-﻿using Spectre.Console.Cli;
+﻿
+using Custom.Cli.Models;
 
-namespace Custom.CLI.Commands
+namespace Custom.Cli.Commands
 {
-    internal class LenCommand : Command<LenCommand.LenCommandSettings>
+    public class LenCommand : CommandBase
     {
-        public override int Execute(CommandContext context, LenCommandSettings settings)
+        public override Task ExecuteAsync(CommandContext context)
         {
-            Console.WriteLine(settings.Str?.Length ?? 0);
-            return 0;
+            Console.WriteLine(Str?.Length ?? 0);
+            return Task.CompletedTask;
         }
 
-        public class LenCommandSettings : CommandSettings
-        {
-            [CommandArgument(0, "[字符串]")]
-            public string Str { get; set; }
-        }
+        [CliArgument(0, "[字符串]")]
+        public string Str { get; set; }
     }
 }

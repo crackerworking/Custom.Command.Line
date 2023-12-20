@@ -1,15 +1,14 @@
 ﻿using GCore.Source.JsonClassGenerator;
 
 using Spectre.Console;
-using Spectre.Console.Cli;
 
 using TextCopy;
 
-namespace Custom.CLI.Commands
+namespace Custom.Cli.Commands
 {
-    internal class JsonToObjectConvertCommand : Command
+    internal class JsonToObjectConvertCommand : CommandBase
     {
-        public override int Execute(CommandContext context)
+        public override Task ExecuteAsync(CommandContext context)
         {
             var str = ClipboardService.GetText();
             if (str != null)
@@ -31,7 +30,7 @@ namespace Custom.CLI.Commands
                     Console.WriteLine("JSON格式错误：" + ex.Message);
                 }
             }
-            return 0;
+            return Task.CompletedTask;
         }
     }
 }

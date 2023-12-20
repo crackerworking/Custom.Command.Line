@@ -1,12 +1,10 @@
-﻿using Spectre.Console.Cli;
+﻿using TextCopy;
 
-using TextCopy;
-
-namespace Custom.CLI.Commands
+namespace Custom.Cli.Commands
 {
-    internal class StringViewCommand : Command
+    internal class StringViewCommand : CommandBase
     {
-        public override int Execute(CommandContext context)
+        public override Task ExecuteAsync(CommandContext context)
         {
             var text = ClipboardService.GetText();
             if (text != null)
@@ -15,7 +13,7 @@ namespace Custom.CLI.Commands
                 text = string.Join(',', text.Split(',', StringSplitOptions.RemoveEmptyEntries));
             }
             Console.WriteLine("(" + text + ")");
-            return 0;
+            return Task.CompletedTask;
         }
     }
 }

@@ -3,9 +3,9 @@ using System.Text.RegularExpressions;
 
 using HtmlAgilityPack;
 
-namespace Custom.CLI.Utils
+namespace Custom.Cli.Helpers
 {
-    internal class IdNoUtils
+    internal class GenHelper
     {
         private const string _list = "http://www.tcmap.com.cn/list/daima_list.html";
 

@@ -119,7 +119,7 @@ namespace Custom.CLI.Models
         /// <returns></returns>
         public static string AnalyzeId(long Id)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             var timestamp = (Id >> timestampLeftShift);
             var time = Jan1st1970.AddMilliseconds(timestamp + twepoch);

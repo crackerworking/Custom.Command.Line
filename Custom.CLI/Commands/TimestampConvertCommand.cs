@@ -1,21 +1,17 @@
-﻿using Custom.CLI.Utils;
+﻿using Custom.Cli.Helpers;
+using Custom.Cli.Models;
 
-using Spectre.Console.Cli;
-
-namespace Custom.CLI.Commands
+namespace Custom.Cli.Commands
 {
-    internal class TimestampConvertCommand : Command<TimestampConvertCommand.TimestampConvertCommandSettings>
+    internal class TimestampConvertCommand : CommandBase
     {
-        public override int Execute(CommandContext context, TimestampConvertCommandSettings settings)
+        public override Task ExecuteAsync(CommandContext context)
         {
-            Console.WriteLine(TimeUtils.ToTime(settings.Ts).ToString("yyyy-MM-dd HH:mm:ss"));
-            return 0;
+            Console.WriteLine(TimeHelper.ToTime(Ts).ToString("yyyy-MM-dd HH:mm:ss"));
+            return Task.CompletedTask;
         }
 
-        public class TimestampConvertCommandSettings : CommandSettings
-        {
-            [CommandArgument(0, "[时间戳]")]
-            public long Ts { get; set; }
-        }
+        [CliArgument(0, "[时间戳]")]
+        public long Ts { get; set; }
     }
 }

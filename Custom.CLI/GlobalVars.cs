@@ -1,6 +1,6 @@
-﻿namespace Custom.CLI.Utils
+﻿namespace Custom.Cli
 {
-    internal static class TipUtils
+    public static class GlobalVars
     {
         public const string UnrecognizedParameters = "参数无法识别";
     }

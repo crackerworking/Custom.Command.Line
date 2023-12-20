@@ -1,21 +1,17 @@
 ﻿using System.Text;
 
+using Custom.Cli.Helpers;
+using Custom.Cli.Models;
 using Custom.CLI.Models;
-using Custom.CLI.Utils;
 
-using Spectre.Console.Cli;
-
-namespace Custom.CLI.Commands
+namespace Custom.Cli.Commands
 {
-    internal class GenCommand : Command<GenCommand.GenCommandSettings>
+    public class GenCommand : CommandBase
     {
-        public class GenCommandSettings : CommandSettings
-        {
-            [CommandArgument(0, "[phone|timestamp|idno|guid|snowid]")]
-            public string Target { get; set; }
-        }
+        [CliArgument(0, "phone|timestamp|idno|guid|snowid", required: true)]
+        public string Target { get; set; }
 
-        public override int Execute(CommandContext context, GenCommandSettings settings)
+        public override Task ExecuteAsync(CommandContext context)
         {
             var r = new Random();
             var dict = new Dictionary<string, Action>
@@ -32,11 +28,11 @@ namespace Custom.CLI.Commands
                 },
                 ["timestamp"] = () =>
                 {
-                    Console.WriteLine(TimeUtils.CurrentTimestamp());
+                    Console.WriteLine(TimeHelper.CurrentTimestamp());
                 },
                 ["idno"] = () =>
                 {
-                    var str = IdNoUtils.GenAsync().ConfigureAwait(true).GetAwaiter().GetResult();
+                    var str = GenHelper.GenAsync().ConfigureAwait(true).GetAwaiter().GetResult();
                     Console.WriteLine(str);
                 },
                 ["guid"] = () =>
@@ -49,11 +45,11 @@ namespace Custom.CLI.Commands
                     Console.WriteLine(ins.NextId());
                 }
             };
-            if (dict.TryGetValue(settings.Target, out var action))
+            if (!string.IsNullOrWhiteSpace(Target) && dict.TryGetValue(Target, out var action))
             {
                 action?.Invoke();
             }
-            return 0;
+            return Task.CompletedTask;
         }
     }
 }
