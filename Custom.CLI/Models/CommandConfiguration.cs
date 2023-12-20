@@ -66,10 +66,13 @@ namespace Custom.Cli.Models
                     arguments.TryAdd(argAttr.Position, argAttr.Description);
                 }
             }
-            sb.AppendLine("参数：");
-            foreach (var item in arguments.OrderBy(x => x.Key))
+            if (arguments.Count > 0)
             {
-                sb.AppendFormat("\t[{0}]\t{1}\r\n", item.Key + 1, item.Value);
+                sb.AppendLine("参数：");
+                foreach (var item in arguments.OrderBy(x => x.Key))
+                {
+                    sb.AppendFormat("\t[{0}]\t{1}\r\n", item.Key + 1, item.Value);
+                }
             }
             if (options.Count > 0)
             {
