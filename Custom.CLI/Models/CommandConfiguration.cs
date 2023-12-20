@@ -65,6 +65,11 @@ namespace Custom.Cli.Models
                     if (arguments.ContainsKey(argAttr.Position)) throw new Exception("参数位置不能重复");
                     arguments.TryAdd(argAttr.Position, argAttr.Description);
                 }
+                var arrayType = typeof(string[]);
+                if (prop.PropertyType.IsArray && prop.PropertyType != arrayType)
+                {
+                    throw new ArgumentException("数组参数只支持" + arrayType);
+                }
             }
             if (arguments.Count > 0)
             {

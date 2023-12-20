@@ -92,17 +92,9 @@ namespace Custom.Cli
                                 {
                                     if (prop.PropertyType.IsArray)
                                     {
-                                        var arrayType = typeof(string[]);
-                                        if (prop.PropertyType != arrayType)
-                                        {
-                                            throw new ArgumentException("数组参数只支持" + arrayType);
-                                        }
-                                        else
-                                        {
-                                            // 数组参数取值：从位置开始直至末尾
-                                            string[] strs = [.. arguments[argAttr.Position..]];
-                                            prop.SetValue(value.Instance, strs);
-                                        }
+                                        // 数组参数取值：从位置开始直至末尾
+                                        string[] strs = [.. arguments[argAttr.Position..]];
+                                        prop.SetValue(value.Instance, strs);
                                     }
                                     else
                                     {
